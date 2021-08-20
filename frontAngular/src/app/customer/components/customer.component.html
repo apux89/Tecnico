@@ -1,0 +1,82 @@
+<div class="conteiner">
+<div class="row ">
+    <div class="col-9"></div>
+    <div class="col-3">
+        <fieldset class="border p-2">
+            <legend style="margin-top: -28px; background-color: white; width: 170px;">
+                    Agregar Cliente
+                </legend>
+                   
+                 <div class="row">
+                     <div class="col">Nombre</div>
+                 </div>
+                 <div class="row">
+                     <div class="col">
+                         <input type="text"
+                         name="FirstName"
+                         class="form-control"
+                         [(ngModel)]="customer.FirstName"
+                         placeholder="">
+                     </div>
+                 </div>
+                 <div class="row">
+                    <div class="col">Apellido</div>
+                 </div>
+                 <div class="row">
+                    <div class="col">
+                         <input type="text"
+                         name="LastName"
+                         class="form-control"
+                         [(ngModel)]="customer.LastName"
+                         placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">Dirección</div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text"
+                        name="Addres"
+                        class="form-control"
+                        [(ngModel)]="customer.Address"
+                        placeholder="">
+                    </div>
+                </div> 
+                 <div class="row">
+                    <div class="col mt-2 d-flex flex-row-reverse">
+                        <button class="btn btn-primary float-right" (click)="addCustommer()">Agregar</button>
+                    </div>
+                </div>   
+        </fieldset>  
+    </div>
+</div>
+<div class="row">
+    <div class="col-1 align-middle">
+        <span class="form-label align-middle"> Cliente:</span>
+    </div>
+    <div class="col-1">
+        <select [(ngModel)]="selectdCustomer.CustomerId" style="width: 200px;" class="form-select" >
+            <option *ngFor="let c of customers" value="{{c.CustomerId}}">
+                {{c.FirstName}} - {{c.LastName}} 
+            </option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <app-invoice [customer]="selectdCustomer"></app-invoice>
+  </div>
+</div>
+</div>
+
+
+<div class="alert alert-success" style="position: absolute; top: 0; left: 0; width: auto;" *ngIf="exito" role="alert">
+    Se agrego el cliente correctamente
+  </div>
+  <div class="alert alert-danger" style="position: absolute; top: 0; left: 0; width: auto;" *ngIf="error" role="alert">
+    Ocurrio un erro al agrega el cliente
+  </div>
+  
+    

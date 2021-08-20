@@ -1,0 +1,52 @@
+
+<div  class="row">
+    <div class="col-9">
+        <app-invoice-item [items]="items"
+        (newItemEvent)="deleteInvoiceItem( $event )"
+        ></app-invoice-item>
+    </div>
+    <div class="col-3">
+        <div class="row">
+            <fieldset class="border p-2">
+             <legend style="margin-top: -28px; background-color: white; width: 81px;">Agregar</legend>
+                <div class="row">
+                    <div class="col-12">
+                        Producto
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text"
+                        name="producto"
+                        class="form-control"
+                        [(ngModel)]="productCode"
+                        placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2 d-flex flex-row-reverse">
+                        <button class="btn btn-primary float-right" (click)="addInvoiceItem()">Agregar</button>
+                    </div>
+                </div>    
+                
+            </fieldset>
+            </div>
+            <div class="row pt-5">
+                <div class="col d-flex  justify-content-center">
+                    <button class="btn btn-secondary" (click)="addInvoice()">Post</button>
+                </div>
+            </div>    
+    </div>
+    
+</div>
+
+<div class="alert alert-success" style="position: absolute; top: 0; left: 0; width: auto;" *ngIf="exito" role="alert">
+    Se agrego correctamnte la factura
+  </div>
+  <div class="alert alert-danger" style="position: absolute; top: 0; left: 0; width: auto;" *ngIf="error" role="alert">
+    Ocurrio un erro al agrega la factura
+  </div>
+  
+    
+
+        

@@ -1,0 +1,21 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Código</th>
+            <th>Acción</th>
+        </tr>
+    </thead> 
+    <tbody>
+        <tr *ngIf="items.length == 0">
+            <td colspan="2" style="text-align: center;">No posee ningun item</td>
+        </tr>
+        <tr *ngFor="let item of items">
+            <td>{{item}}</td>
+            <td>
+                <a (click)="deleteInvocieItem(item)" href="#">Eliminar </a>
+            </td>
+        </tr>
+        
+
+    </tbody>
+</table>
